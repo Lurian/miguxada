@@ -5,7 +5,5 @@
 .DS_Store
 /build
 
-.idea/workspace.xml
-.idea/modules.xml
-.idea/libraries/*
+.idea
 *.iml
