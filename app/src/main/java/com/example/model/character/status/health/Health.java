@@ -12,4 +12,5 @@ public class Health extends Status {
     public Health(Long max){
         super(max);
     }
+    public Health(Long max, Long min) { super(max,min); }
 }
