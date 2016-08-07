@@ -13,9 +13,13 @@ public class Character {
     /** Biography of the character **/
     private String biography;
 
-    public Character(String name, String biography){
+    /** Statuses of the character **/
+    private CharacterStatus statuses;
+
+    public Character(String name, String biography, CharacterStatus statuses){
         this.biography = biography;
         this.name = name;
+        this.statuses = statuses;
     }
 
     public String getName() {
@@ -32,5 +36,9 @@ public class Character {
 
     public void setBiography(String biography) {
         this.biography = biography;
+    }
+
+    public CharacterStatus getStatus() {
+        return this.statuses;
     }
 }
