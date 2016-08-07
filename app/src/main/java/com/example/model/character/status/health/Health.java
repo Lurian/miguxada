@@ -10,26 +10,5 @@ public class Health extends Status {
     public Health(Long max){
         super(max);
     }
-
-    @Override
-    public void increase(Long amount) {
-        if (amount < 0) { throw new IllegalArgumentException("Negative Argument!"); }
-        Long newAmount = this.getMax() + amount;
-        if (newAmount >= this.getMax()) {
-            this.setCurrent(this.getMax());
-        } else {
-            this.setCurrent(newAmount);
-        }
-    }
-
-    @Override
-    public void decrease(Long amount) {
-        if (amount < 0) { throw new IllegalArgumentException("Negative Argument!"); }
-        Long newAmount = this.getMax() - amount;
-        if (newAmount <= 0L) {
-            this.setCurrent(0L);
-        } else {
-            this.setCurrent(newAmount);
-        }
-    }
+    public Health(Long max, Long min) { super(max,min); }
 }
