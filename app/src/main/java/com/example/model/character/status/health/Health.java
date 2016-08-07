@@ -1,9 +1,11 @@
 package com.example.model.character.status.health;
 
 import com.example.model.character.status.Status;
+import com.example.model.character.status.StatusChangeEvent;
 
 /**
- * Created by Lucas on 06/08/2016.
+ * Class representing the Health Status
+ * @author Lucas Andrade
  */
 public class Health extends Status {
 
