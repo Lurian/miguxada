@@ -1,13 +1,13 @@
-package com.example.model.character.status.health;
+package com.example.model.character.status.energy;
 
 import com.example.model.character.status.Status;
 
 /**
- * Created by Lucas on 06/08/2016.
+ * Created by Pedro on 06/08/2016.
  */
-public class Health extends Status {
+public class Energy extends Status {
 
-    public Health(Long max){
+    public Energy(Long max){
         super(max);
     }
 
