@@ -10,6 +10,7 @@ import java.util.List;
  */
 public abstract class Status {
     private final Long DEFAULT_MIN = 0L;
+    private final Long ZERO = 0L;
 
     /** List of listeners of this Status **/
     List<StatusChangeListener> listenerList;
@@ -24,16 +25,16 @@ public abstract class Status {
     private Long min = DEFAULT_MIN;
 
     public Status(Long max) {
-        this.setMax(max);
-        this.setCurrent(max);
- 	this.listenerList = new ArrayList<StatusChangeListener>();
+        this.max = max;
+        this.current = max;
+ 	    this.listenerList = new ArrayList<StatusChangeListener>();
     }
 
     public Status(Long max, Long min) {
-        this.setMax(max);
-        this.setMin(min);
-        this.setCurrent(max);
- 	this.listenerList = new ArrayList<StatusChangeListener>();
+        this.max = max;
+        this.min = min;
+        this.current = max;
+ 	    this.listenerList = new ArrayList<StatusChangeListener>();
     }
 
     /**
@@ -42,9 +43,11 @@ public abstract class Status {
      * @exception IllegalArgumentException If the number passed as argument is negative.
      */
     public void increase(Long amount) {
-        if (amount < this.getMin()) { throw new IllegalArgumentException("Negative numbers are not accepted!"); }
-        Long newAmount = this.getMax() + amount;
-        if (newAmount >= this.getCurrent()) {
+        if (amount < ZERO) {
+            throw new IllegalArgumentException("Negative numbers are not accepted!");
+        }
+        Long newAmount = this.getCurrent() + amount;
+        if (newAmount >= this.getMax()) {
             this.setCurrent(this.getMax());
         } else {
             this.setCurrent(newAmount);
@@ -57,7 +60,9 @@ public abstract class Status {
      * @exception IllegalArgumentException If the number passed as argument is negative.
      */
     public void decrease(Long amount){
-        if (amount < this.getMin()) { throw new IllegalArgumentException("Negative numbers are not accepted!"); }
+        if (amount < ZERO) {
+            throw new IllegalArgumentException("Negative numbers are not accepted!");
+        }
         Long newAmount = this.getCurrent() - amount;
         if (newAmount <= this.getMin()) {
             this.setCurrent(this.getMin());
@@ -66,9 +71,13 @@ public abstract class Status {
         }
     }
 
-    public Long getMin() { return min; }
+    public Long getMin() {
+        return min;
+    }
 
-    public void setMin(Long min) { this.min = min; }
+    public void setMin(Long min) {
+        this.min = min;
+    }
 
     public Long getMax() {
         return max;
