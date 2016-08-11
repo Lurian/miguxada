@@ -1,6 +1,7 @@
-package com.example.model.tests.character.status;
+package com.example.model.tests.character.status.energy;
 
 import com.example.model.character.status.energy.Energy;
+import com.example.model.tests.character.status.StatusTest;
 
 import org.junit.Before;
 

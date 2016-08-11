@@ -15,10 +15,10 @@ import static org.junit.Assert.assertThat;
  */
 @Ignore
 public abstract class StatusTest {
-    Long maxStatus = 100L;
-    Long minStatus = 20L;
-    Status status;
-    Status statusWithMin;
+    protected Long maxStatus = 100L;
+    protected Long minStatus = 20L;
+    protected Status status;
+    protected Status statusWithMin;
 
     @Test
     public void status_decreasesAmount() {

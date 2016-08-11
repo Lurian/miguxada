@@ -1,6 +1,7 @@
-package com.example.model.tests.character.status;
+package com.example.model.tests.character.status.health;
 
 import com.example.model.character.status.health.Health;
+import com.example.model.tests.character.status.StatusTest;
 
 import org.junit.Before;
 
