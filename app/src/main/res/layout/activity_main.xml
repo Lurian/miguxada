@@ -7,9 +7,14 @@
 
 	<Button
 		style="?android:attr/buttonStyleSmall"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Character Status"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:layout_marginTop="14dp"
+        android:layout_gravity="center_horizontal"
+		android:text="@string/character_status"
+		android:textSize="21sp"
+		android:textColor="#51b3f4"
+        android:background="#000000"
 		android:id="@+id/charStatus_button" />
 
 	<ListView
