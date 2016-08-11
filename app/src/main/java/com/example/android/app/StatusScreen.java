@@ -1,11 +1,8 @@
 package com.example.android.app;
 
 import android.support.v7.app.AppCompatActivity;
-
-;
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.example.model.character.Character;
 import com.example.model.character.CharacterStatus;
 import com.example.model.character.status.energy.Energy;

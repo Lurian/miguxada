@@ -7,6 +7,7 @@ package com.example.model.character.attribute;
  */
 public abstract class Attribute {
 
+    /** Current value of the attribute **/
     private Long value;
 
     public Attribute(Long value) {
