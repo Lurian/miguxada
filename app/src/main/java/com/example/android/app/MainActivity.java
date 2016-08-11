@@ -1,8 +1,9 @@
 package com.example.android.app;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,19 +13,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
-
+public class MainActivity extends AppCompatActivity {
 
 	private Toolbar toolbar;
 	private DrawerLayout drawerLayout;
 	private ActionBarDrawerToggle drawerToggle;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		final Button button = (Button) findViewById(R.id.charStatus_button);
+		button.setOnClickListener(new View.OnClickListener() {
+			  public void onClick(View v) {
+				  Intent statusScreen = new Intent(getApplicationContext(), StatusScreen.class);
+				  startActivity(statusScreen);
+			  }
+			});
 
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -86,6 +94,9 @@ public class MainActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void onClick(View v) {
+		// Perform action on click
+	}
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
