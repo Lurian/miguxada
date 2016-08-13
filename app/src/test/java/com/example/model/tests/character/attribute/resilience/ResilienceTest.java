@@ -1,6 +1,6 @@
-package com.example.model.tests.character.attribute.resilence;
+package com.example.model.tests.character.attribute.resilience;
 
-import com.example.model.character.attribute.resilence.Resilence;
+import com.example.model.character.attribute.resilience.Resilience;
 import com.example.model.tests.character.attribute.AttributeTest;
 
 import org.junit.Before;
@@ -14,11 +14,11 @@ import static org.junit.Assert.assertThat;
  *
  * @author Lucas Andrade
  */
-public class ResilenceTest extends AttributeTest {
+public class ResilienceTest extends AttributeTest {
 
     @Before
     public void setUp() {
-        super.attribute = new Resilence(super.initialValue);
+        super.attribute = new Resilience(super.initialValue);
         assertThat(super.attribute, is(notNullValue()));
     }
 }
