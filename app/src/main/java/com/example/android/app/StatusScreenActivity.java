@@ -8,7 +8,7 @@ import com.example.model.character.CharacterStatus;
 import com.example.model.character.status.energy.Energy;
 import com.example.model.character.status.health.Health;
 
-public class StatusScreen extends AppCompatActivity {
+public class StatusScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

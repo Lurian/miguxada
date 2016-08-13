@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 		final Button button = (Button) findViewById(R.id.charStatus_button);
 		button.setOnClickListener(new View.OnClickListener() {
 			  public void onClick(View v) {
-				  Intent statusScreen = new Intent(getApplicationContext(), StatusScreen.class);
+				  Intent statusScreen = new Intent(getApplicationContext(), StatusScreenActivity.class);
 				  startActivity(statusScreen);
 			  }
 			});
