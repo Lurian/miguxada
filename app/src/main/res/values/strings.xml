@@ -11,5 +11,16 @@
     <string name="health">Health</string>
     <string name="energy">Energy</string>
     <string name="character_status">Character Status</string>
+    <string name="plusSign">+</string>
+    <string name="minusSign">-</string>
+
+    // Attributes
+    <string name="attributes">Attributes</string>
+    <string name="agility">Agility</string>
+    <string name="resilience">Resilience</string>
+    <string name="resolve">Resolve</string>
+    <string name="stamina">Stamina</string>
+    <string name="strength">Strength</string>
+    <string name="wit">Wit</string>
 
 </resources>

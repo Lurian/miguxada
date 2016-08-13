@@ -6,10 +6,10 @@
     android:shrinkColumns="*"
     android:stretchColumns="*"
     android:background="#ffffff">
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,11 +19,11 @@
             android:padding="18dip"
             android:background="#b0b0b0"
             android:textColor="#000"/>
-        </TableRow>
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
         <TextView
             android:id="@+id/HealthText"
             android:text="@string/health"
@@ -33,7 +33,6 @@
             android:textColor="#000000"
             android:padding="20dip"
             android:gravity="center"/>
-
         <TextView
             android:id="@+id/HealthValue"
             android:layout_weight="1"
@@ -42,14 +41,11 @@
             android:textColor="#000000"
             android:padding="20dip"
             android:gravity="center"/>
-
-        </TableRow>
-
-        <TableRow
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:gravity="center_horizontal">
-
+    </TableRow>
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
         <TextView
             android:id="@+id/EnergyText"
             android:text="@string/energy"
@@ -59,7 +55,6 @@
             android:textColor="#000000"
             android:padding="18dip"
             android:gravity="center"/>
-
         <TextView
             android:id="@+id/EnergyValue"
             android:layout_weight="1"
@@ -68,5 +63,5 @@
             android:textColor="#000000"
             android:padding="18dip"
             android:gravity="center"/>
-        </TableRow>
+    </TableRow>
 </TableLayout>

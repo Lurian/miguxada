@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StatusScreen">
-        </activity>
+        <activity android:name=".StatusScreenActivity"></activity>
+        <activity android:name=".AttributeScreenActivity"></activity>
     </application>
 
 </manifest>
