@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".StatusScreenActivity"></activity>
-        <activity android:name=".AtributesScreenActivity"></activity>
+        <activity android:name=".AttributeScreenActivity"></activity>
     </application>
 
 </manifest>

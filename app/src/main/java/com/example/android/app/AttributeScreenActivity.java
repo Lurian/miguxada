@@ -3,7 +3,7 @@ package com.example.android.app;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AtributesScreenActivity extends AppCompatActivity {
+public class AttributeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
