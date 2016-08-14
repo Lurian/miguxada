@@ -11,36 +11,33 @@
         android:fillViewport="true"
         android:scrollbars="vertical">
         <TableLayout
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentTop="true"
             android:scrollbars = "vertical"
             tools:context=".AttributeScreenActivity">
             <TableRow
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:layout_span="2"
                 android:layout_weight="0">
                 <TextView
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
+                    android:textSize="26sp"
                     android:text="@string/attributes"
-                    android:padding="18dip"
+                    android:padding="20dip"
                     android:textColor="#000000"/>
 
             </TableRow>
             <TableRow
                 android:id="@+id/agilityRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#dcdcdc">
                 <TextView
                     android:id="@+id/agilityText"
                     android:text="@string/agility"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -48,8 +45,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonAgi"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -59,8 +56,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonAgi"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -70,7 +67,6 @@
                     android:id="@+id/agilityValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -78,13 +74,14 @@
             <TableRow
                 android:id="@+id/resilienceRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#ececec">
                 <TextView
                     android:id="@+id/resilienceText"
                     android:text="@string/resilience"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -92,8 +89,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonResi"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -103,8 +100,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonResi"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -114,7 +111,6 @@
                     android:id="@+id/resilienceValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -122,13 +118,14 @@
             <TableRow
                 android:id="@+id/resolveRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#dcdcdc">
                 <TextView
                     android:id="@+id/resolveText"
                     android:text="@string/resolve"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -136,8 +133,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonReso"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -147,8 +144,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonReso"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -158,7 +155,6 @@
                     android:id="@+id/resolveValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -166,13 +162,14 @@
             <TableRow
                 android:id="@+id/staminaRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#ececec">
                 <TextView
                     android:id="@+id/staminaText"
                     android:text="@string/stamina"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -180,8 +177,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonSta"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -191,8 +188,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonSta"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -202,7 +199,6 @@
                     android:id="@+id/staminaValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -210,13 +206,14 @@
             <TableRow
                 android:id="@+id/strengthRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#dcdcdc">
                 <TextView
                     android:id="@+id/strengthText"
                     android:text="@string/strength"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -224,8 +221,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonStr"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -235,8 +232,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonStr"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -246,7 +243,6 @@
                     android:id="@+id/strengthValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -254,13 +250,14 @@
             <TableRow
                 android:id="@+id/witRow"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent">
+                android:layout_width="match_parent"
+                android:background="#ececec">
                 <TextView
                     android:id="@+id/witText"
                     android:text="@string/wit"
+                    android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
@@ -268,8 +265,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/plusButtonWit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/plusSign"
                     android:textSize="21sp"
@@ -279,8 +276,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:id="@+id/minusButtonWit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="0"
                     android:text="@string/minusSign"
                     android:textSize="21sp"
@@ -290,7 +287,6 @@
                     android:id="@+id/witValue"
                     android:layout_weight="5"
                     android:textSize="22sp"
-                    android:background="#dcdcdc"
                     android:textColor="#000000"
                     android:padding="20dip"
                     android:gravity="center"/>
