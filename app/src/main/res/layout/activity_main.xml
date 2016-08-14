@@ -17,6 +17,18 @@
         android:background="#000000"
 		android:id="@+id/charStatus_button" />
 
+	<Button
+		style="?android:attr/buttonStyleSmall"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="14dp"
+		android:layout_gravity="center_horizontal"
+		android:text="@string/character_attributes"
+		android:textSize="21sp"
+		android:textColor="#51b3f4"
+		android:background="#000000"
+		android:id="@+id/charAttributes_button" />
+
 	<ListView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

@@ -1,6 +1,5 @@
 package com.example.model.tests.character;
 
-import com.example.model.character.Character;
 import com.example.model.character.CharacterAttributes;
 import com.example.model.character.CharacterStatuses;
 import com.example.model.character.attribute.agility.Agility;
@@ -14,25 +13,18 @@ import com.example.model.character.status.health.Health;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /**
- * Test Class for @<code>Character</code>
+ * Test Class for @<code>CharacterStatuses</code>
  *
  * @author Lucas Andrade
  */
-public class CharacterTest {
+public class CharacterAttributesTest {
 
     @Test
-    public void characterModel_SimpleConstructor() {
-        String name = "name";
-        String biography = "biography";
-
-        Health h = new Health(100L);
-        Energy e = new Energy(100L);
-        CharacterStatuses charStat = new CharacterStatuses(h,e);
-
+    public void characterStatusModel_SimpleConstructor() {
         Agility agility = new Agility(10L);
         Resilience resilience = new Resilience(10L);
         Resolve resolve = new Resolve(10L);
@@ -40,13 +32,13 @@ public class CharacterTest {
         Strength strength = new Strength(10L);
         Wit wit = new Wit(10L);
 
-        CharacterAttributes charAttr = new CharacterAttributes(agility,resilience,resolve,stamina,strength,wit);
+        CharacterAttributes charAttr = new CharacterAttributes(agility, resilience, resolve, stamina, strength, wit);
 
-        Character char1 = new Character(name, biography,charStat, charAttr);
-
-        assertThat(char1.getBiography(), is(biography));
-        assertThat(char1.getName(), is(name));
-        assertThat(char1.getStatus().getHealth(),is(h));
-        assertThat(char1.getAttribute().getStrength(), is(strength));
+        assertThat(charAttr.getAgility(), is(agility));
+        assertThat(charAttr.getResilience(), is(resilience));
+        assertThat(charAttr.getResolve(), is(resolve));
+        assertThat(charAttr.getStamina(), is(stamina));
+        assertThat(charAttr.getStrength(), is(strength));
+        assertThat(charAttr.getWit(), is(wit));
     }
 }

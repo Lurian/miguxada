@@ -3,15 +3,17 @@ package com.example.model.character;
 import com.example.model.character.status.energy.Energy;
 import com.example.model.character.status.health.Health;
 
+import java.io.Serializable;
+
 /**
  * Class managing the basic statuses of a character.
  * @author Pedro Falcao
  */
-public class CharacterStatus {
+public class CharacterStatuses implements Serializable{
     private Health health;
     private Energy energy;
 
-    public CharacterStatus(Health health, Energy energy) {
+    public CharacterStatuses(Health health, Energy energy) {
         this.health = health;
         this.energy = energy;
     }

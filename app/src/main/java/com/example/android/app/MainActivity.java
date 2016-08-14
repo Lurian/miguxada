@@ -2,11 +2,11 @@ package com.example.android.app;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -14,6 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.model.character.Character;
+import com.example.model.character.CharacterAttributes;
+import com.example.model.character.CharacterStatuses;
+import com.example.model.character.attribute.agility.Agility;
+import com.example.model.character.attribute.resilience.Resilience;
+import com.example.model.character.attribute.resolve.Resolve;
+import com.example.model.character.attribute.stamina.Stamina;
+import com.example.model.character.attribute.strength.Strength;
+import com.example.model.character.attribute.wit.Wit;
+import com.example.model.character.status.energy.Energy;
+import com.example.model.character.status.health.Health;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,13 +38,29 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final Button button = (Button) findViewById(R.id.charStatus_button);
-		button.setOnClickListener(new View.OnClickListener() {
+		Intent i = new Intent();
+
+		final Bundle b = new Bundle();
+		Character c = getMockCharacter();
+		b.putSerializable("TestChar", c);
+
+		final Button statusButton = (Button) findViewById(R.id.charStatus_button);
+		statusButton.setOnClickListener(new View.OnClickListener() {
 			  public void onClick(View v) {
-				  Intent statusScreen = new Intent(getApplicationContext(), StatusScreenActivity.class);
-				  startActivity(statusScreen);
+				  Intent statusScreenIntent = new Intent(getApplicationContext(), StatusScreenActivity.class);
+				  statusScreenIntent.putExtras(b);
+				  startActivity(statusScreenIntent);
 			  }
 			});
+
+        final Button attributesButton = (Button) findViewById(R.id.charAttributes_button);
+        attributesButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent statusScreenIntent = new Intent(getApplicationContext(), AttributeScreenActivity.class);
+                statusScreenIntent.putExtras(b);
+                startActivity(statusScreenIntent);
+            }
+        });
 
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -109,5 +137,23 @@ public class MainActivity extends AppCompatActivity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			return inflater.inflate(R.layout.fragment_main, container, false);
 		}
+	}
+
+	/**
+	 * Mock Generator of a Character object for test purposes.
+	 * @return Mock Chracter
+	 */
+	private Character getMockCharacter() {
+		CharacterStatuses charStat = new CharacterStatuses(new Health(100L), new Energy(100L));
+
+		Agility agility = new Agility(10L);
+		Resilience resilience = new Resilience(10L);
+		Resolve resolve = new Resolve(10L);
+		Stamina stamina = new Stamina(10L);
+		Strength strength = new Strength(10L);
+		Wit wit = new Wit(10L);
+
+		CharacterAttributes charAttr = new CharacterAttributes(agility, resilience, resolve, stamina, strength, wit);
+		return new Character("João", "", charStat, charAttr);
 	}
 }

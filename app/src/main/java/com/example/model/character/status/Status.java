@@ -1,5 +1,6 @@
 package com.example.model.character.status;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
  * @author Lucas Andrade, Pedro Falcão
  */
-public abstract class Status {
+public abstract class Status implements Serializable {
     private final Long DEFAULT_MIN = 0L;
     private final Long ZERO = 0L;
 

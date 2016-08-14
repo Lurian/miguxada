@@ -1,11 +1,13 @@
 package com.example.model.character.attribute;
 
+import java.io.Serializable;
+
 /**
  * Class representing an attribute and his properties.
  *
  * @author Lucas Andrade
  */
-public abstract class Attribute {
+public abstract class Attribute implements Serializable {
 
     /** Current value of the attribute **/
     private Long value;
