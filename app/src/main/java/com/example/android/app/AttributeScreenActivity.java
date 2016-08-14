@@ -23,54 +23,8 @@ public class AttributeScreenActivity extends AppCompatActivity implements View.O
             c = (Character) b.getSerializable("TestChar");
             this.character = c;
 
-            String agility = c.getAttribute().getAgility().getValue().toString();
-            TextView agiValue = (TextView) findViewById(R.id.agilityValue);
-            agiValue.setText(agility);
-
-            String resilience = c.getAttribute().getResilience().getValue().toString();
-            TextView resiValue = (TextView) findViewById(R.id.resilienceValue);
-            resiValue.setText(resilience);
-
-            String resolve = c.getAttribute().getResolve().getValue().toString();
-            TextView resoValue = (TextView) findViewById(R.id.resolveValue);
-            resoValue.setText(resolve);
-
-            String stamina = c.getAttribute().getStamina().getValue().toString();
-            TextView staValue = (TextView) findViewById(R.id.staminaValue);
-            staValue.setText(stamina);
-
-            String strength = c.getAttribute().getStrength().getValue().toString();
-            TextView strValue = (TextView) findViewById(R.id.strengthValue);
-            strValue.setText(strength);
-
-            String wit = c.getAttribute().getWit().getValue().toString();
-            TextView wValue = (TextView) findViewById(R.id.witValue);
-            wValue.setText(wit);
-
-            final Button agiPlus = (Button) findViewById(R.id.plusButtonAgi);
-            agiPlus.setOnClickListener(this);
-            final Button resiPlus = (Button) findViewById(R.id.plusButtonResi);
-            resiPlus.setOnClickListener(this);
-            final Button resoPlus = (Button) findViewById(R.id.plusButtonReso);
-            resoPlus.setOnClickListener(this);
-            final Button staPlus = (Button) findViewById(R.id.plusButtonSta);
-            staPlus.setOnClickListener(this);
-            final Button strPlus = (Button) findViewById(R.id.plusButtonStr);
-            strPlus.setOnClickListener(this);
-            final Button witPlus = (Button) findViewById(R.id.plusButtonWit);
-            witPlus.setOnClickListener(this);
-            final Button agiMinus = (Button) findViewById(R.id.minusButtonAgi);
-            agiMinus.setOnClickListener(this);
-            final Button resiMinus = (Button) findViewById(R.id.minusButtonResi);
-            resiMinus.setOnClickListener(this);
-            final Button resoMinus = (Button) findViewById(R.id.minusButtonReso);
-            resoMinus.setOnClickListener(this);
-            final Button staMinus = (Button) findViewById(R.id.minusButtonSta);
-            staMinus.setOnClickListener(this);
-            final Button strMinus = (Button) findViewById(R.id.minusButtonStr);
-            strMinus.setOnClickListener(this);
-            final Button witMinus = (Button) findViewById(R.id.minusButtonWit);
-            witMinus.setOnClickListener(this);
+            setAttributeValueStrings();
+            instantiateButtons();
         }
     }
 
@@ -116,5 +70,58 @@ public class AttributeScreenActivity extends AppCompatActivity implements View.O
             default:
                 break;
         }
+    }
+
+    private void instantiateButtons() {
+        final Button agiPlus = (Button) findViewById(R.id.plusButtonAgi);
+        agiPlus.setOnClickListener(this);
+        final Button resiPlus = (Button) findViewById(R.id.plusButtonResi);
+        resiPlus.setOnClickListener(this);
+        final Button resoPlus = (Button) findViewById(R.id.plusButtonReso);
+        resoPlus.setOnClickListener(this);
+        final Button staPlus = (Button) findViewById(R.id.plusButtonSta);
+        staPlus.setOnClickListener(this);
+        final Button strPlus = (Button) findViewById(R.id.plusButtonStr);
+        strPlus.setOnClickListener(this);
+        final Button witPlus = (Button) findViewById(R.id.plusButtonWit);
+        witPlus.setOnClickListener(this);
+        final Button agiMinus = (Button) findViewById(R.id.minusButtonAgi);
+        agiMinus.setOnClickListener(this);
+        final Button resiMinus = (Button) findViewById(R.id.minusButtonResi);
+        resiMinus.setOnClickListener(this);
+        final Button resoMinus = (Button) findViewById(R.id.minusButtonReso);
+        resoMinus.setOnClickListener(this);
+        final Button staMinus = (Button) findViewById(R.id.minusButtonSta);
+        staMinus.setOnClickListener(this);
+        final Button strMinus = (Button) findViewById(R.id.minusButtonStr);
+        strMinus.setOnClickListener(this);
+        final Button witMinus = (Button) findViewById(R.id.minusButtonWit);
+        witMinus.setOnClickListener(this);
+    }
+
+    private void setAttributeValueStrings() {
+        String agility = character.getAttribute().getAgility().getValue().toString();
+        TextView agiValue = (TextView) findViewById(R.id.agilityValue);
+        agiValue.setText(agility);
+
+        String resilience = character.getAttribute().getResilience().getValue().toString();
+        TextView resiValue = (TextView) findViewById(R.id.resilienceValue);
+        resiValue.setText(resilience);
+
+        String resolve = character.getAttribute().getResolve().getValue().toString();
+        TextView resoValue = (TextView) findViewById(R.id.resolveValue);
+        resoValue.setText(resolve);
+
+        String stamina = character.getAttribute().getStamina().getValue().toString();
+        TextView staValue = (TextView) findViewById(R.id.staminaValue);
+        staValue.setText(stamina);
+
+        String strength = character.getAttribute().getStrength().getValue().toString();
+        TextView strValue = (TextView) findViewById(R.id.strengthValue);
+        strValue.setText(strength);
+
+        String wit = character.getAttribute().getWit().getValue().toString();
+        TextView wValue = (TextView) findViewById(R.id.witValue);
+        wValue.setText(wit);
     }
 }
