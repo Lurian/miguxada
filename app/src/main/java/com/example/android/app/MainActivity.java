@@ -16,22 +16,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.model.character.Character;
-import com.example.model.character.CharacterAttributes;
-import com.example.model.character.CharacterStatuses;
-import com.example.model.character.attribute.agility.Agility;
-import com.example.model.character.attribute.resilience.Resilience;
-import com.example.model.character.attribute.resolve.Resolve;
-import com.example.model.character.attribute.stamina.Stamina;
-import com.example.model.character.attribute.strength.Strength;
-import com.example.model.character.attribute.wit.Wit;
-import com.example.model.character.status.energy.Energy;
-import com.example.model.character.status.health.Health;
 
 public class MainActivity extends AppCompatActivity {
 
 	private Toolbar toolbar;
 	private DrawerLayout drawerLayout;
 	private ActionBarDrawerToggle drawerToggle;
+
+    private Character c;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
 		Intent i = new Intent();
 
 		final Bundle b = new Bundle();
-		Character c = getMockCharacter();
-		b.putSerializable("TestChar", c);
+
+        MyApplication app = (MyApplication) getApplicationContext();
+        this.c = app.getCharacter();
 
 		final Button statusButton = (Button) findViewById(R.id.charStatus_button);
 		statusButton.setOnClickListener(new View.OnClickListener() {
 			  public void onClick(View v) {
 				  Intent statusScreenIntent = new Intent(getApplicationContext(), StatusScreenActivity.class);
-				  statusScreenIntent.putExtras(b);
 				  startActivity(statusScreenIntent);
 			  }
 			});
@@ -86,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
 					.commit();
 		}
 	}
+
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore state members from saved instance
+        this.c = (Character) savedInstanceState.getSerializable("TestChar");
+    }
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
@@ -137,23 +137,5 @@ public class MainActivity extends AppCompatActivity {
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			return inflater.inflate(R.layout.fragment_main, container, false);
 		}
-	}
-
-	/**
-	 * Mock Generator of a Character object for test purposes.
-	 * @return Mock Chracter
-	 */
-	private Character getMockCharacter() {
-		CharacterStatuses charStat = new CharacterStatuses(new Health(100L), new Energy(100L));
-
-		Agility agility = new Agility(10L);
-		Resilience resilience = new Resilience(10L);
-		Resolve resolve = new Resolve(10L);
-		Stamina stamina = new Stamina(10L);
-		Strength strength = new Strength(10L);
-		Wit wit = new Wit(10L);
-
-		CharacterAttributes charAttr = new CharacterAttributes(agility, resilience, resolve, stamina, strength, wit);
-		return new Character("João", "", charStat, charAttr);
 	}
 }

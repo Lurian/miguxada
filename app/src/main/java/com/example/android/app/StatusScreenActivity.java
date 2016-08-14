@@ -13,19 +13,18 @@ public class StatusScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status_screen);
 
-        // Character object for test purposes.
-        Bundle b = this.getIntent().getExtras();
-        Character c;
-        if (b != null) {
-            c = (Character) b.getSerializable("TestChar");
+//         Character object for test purposes.
+        MyApplication app = (MyApplication) getApplicationContext();
+        Character c = app.getCharacter();
 
-            String health = c.getStatus().getHealth().getCurrent() + "/" + c.getStatus().getHealth().getMax();
-            TextView healthValue = (TextView) findViewById(R.id.HealthValue);
-            healthValue.setText(health);
+        c.getStatus().getEnergy().decrease(1L);
 
-            String energy = c.getStatus().getEnergy().getCurrent() + "/" + c.getStatus().getEnergy().getMax();
-            TextView energyValue = (TextView) findViewById(R.id.EnergyValue);
-            energyValue.setText(energy);
-        }
+        String health = c.getStatus().getHealth().getCurrent() + "/" + c.getStatus().getHealth().getMax();
+        TextView healthValue = (TextView) findViewById(R.id.HealthValue);
+        healthValue.setText(health);
+
+        String energy = c.getStatus().getEnergy().getCurrent() + "/" + c.getStatus().getEnergy().getMax();
+        TextView energyValue = (TextView) findViewById(R.id.EnergyValue);
+        energyValue.setText(energy);
     }
 }

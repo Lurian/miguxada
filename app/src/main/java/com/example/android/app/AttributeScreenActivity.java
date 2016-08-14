@@ -13,10 +13,7 @@ public class AttributeScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_atributes_screen);
 
         // Character object for test purposes.
-        Bundle b = this.getIntent().getExtras();
-        Character c;
-        if (b != null) {
-            c = (Character) b.getSerializable("TestChar");
-        }
+        MyApplication app = (MyApplication) getApplicationContext();
+        Character c = app.getCharacter();
     }
 }
