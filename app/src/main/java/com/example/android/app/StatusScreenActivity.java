@@ -2,6 +2,8 @@ package com.example.android.app;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
@@ -15,7 +17,8 @@ public class StatusScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityStatusScreenBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_status_screen);
         MyApplication app = (MyApplication) getApplicationContext();
-        Character c = app.getCharacter();
-        binding.setCharacter(c);
+        final Character c = app.getCharacter();
+        binding.setEnergy(c.getStatuses().getEnergy());
+        binding.setHealth(c.getStatuses().getHealth());
     }
 }

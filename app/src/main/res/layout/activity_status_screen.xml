@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <variable name="character" type="com.example.model.character.Character"/>
+        <variable name="health" type="com.example.model.character.status.health.Health"/>
+        <variable name="energy" type="com.example.model.character.status.energy.Energy"/>
     </data>
     <TableLayout
         android:layout_width="match_parent"
@@ -39,7 +40,7 @@
             <TextView
                 android:id="@+id/HealthValue"
                 android:layout_weight="1"
-                android:text="@{Long.toString(character.statuses.health.current)}"
+                android:text="@{Long.toString(health.current)}"
                 android:textSize="22sp"
                 android:background="#d3d3d3"
                 android:textColor="#000000"
@@ -63,7 +64,7 @@
                 android:id="@+id/EnergyValue"
                 android:layout_weight="1"
                 android:textSize="22sp"
-                android:text="@{Long.toString(character.statuses.energy.current)}"
+                android:text="@{Long.toString(energy.current)}"
                 android:background="#a09f9f"
                 android:textColor="#000000"
                 android:padding="18dip"
