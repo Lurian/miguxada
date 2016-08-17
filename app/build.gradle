@@ -2,7 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
 
-	compileSdkVersion 22
+    dataBinding {
+        enabled = true
+    }
+
+    compileSdkVersion 22
 	buildToolsVersion "22.0.1"
 
 	defaultConfig {
@@ -18,6 +22,7 @@ android {
 		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 		multiDexEnabled true
 	}
+
 
 	packagingOptions {
 		exclude 'LICENSE.txt'

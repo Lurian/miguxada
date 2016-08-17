@@ -46,7 +46,7 @@ public class CharacterTest {
 
         assertThat(char1.getBiography(), is(biography));
         assertThat(char1.getName(), is(name));
-        assertThat(char1.getStatus().getHealth(),is(h));
-        assertThat(char1.getAttribute().getStrength(), is(strength));
+        assertThat(char1.getStatuses().getHealth(),is(h));
+        assertThat(char1.getAttributes().getStrength(), is(strength));
     }
 }

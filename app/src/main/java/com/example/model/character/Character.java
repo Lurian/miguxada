@@ -44,11 +44,19 @@ public class Character implements Serializable {
         this.biography = biography;
     }
 
-    public CharacterStatuses getStatus() {
-        return this.statuses;
+    public CharacterStatuses getStatuses() {
+        return statuses;
     }
 
-    public CharacterAttributes getAttribute() {
+    public void setStatuses(CharacterStatuses statuses) {
+        this.statuses = statuses;
+    }
+
+    public CharacterAttributes getAttributes() {
         return attributes;
+    }
+
+    public void setAttributes(CharacterAttributes attributes) {
+        this.attributes = attributes;
     }
 }

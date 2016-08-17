@@ -25,4 +25,12 @@ public class CharacterStatuses implements Serializable{
     public Energy getEnergy() {
         return energy;
     }
+
+    public void setHealth(Health health) {
+        this.health = health;
+    }
+
+    public void setEnergy(Energy energy) {
+        this.energy = energy;
+    }
 }
