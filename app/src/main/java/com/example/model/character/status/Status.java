@@ -1,5 +1,10 @@
 package com.example.model.character.status;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.example.android.app.BR;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +14,7 @@ import java.util.List;
 
  * @author Lucas Andrade, Pedro Falcão
  */
-public abstract class Status implements Serializable {
+public abstract class Status extends BaseObservable implements Serializable {
     private final Long DEFAULT_MIN = 0L;
     private final Long ZERO = 0L;
 
@@ -17,7 +22,8 @@ public abstract class Status implements Serializable {
     List<StatusChangeListener> listenerList;
 
     /** Current value of the status **/
-    private Long current;
+    @Bindable
+    public Long current;
 
     /** Maximum value of the status **/
     private Long max;
@@ -84,7 +90,7 @@ public abstract class Status implements Serializable {
         return max;
     }
 
-    protected void setMax(Long max) {
+    public void setMax(Long max) {
         this.max = max;
     }
 
@@ -92,7 +98,8 @@ public abstract class Status implements Serializable {
         return current;
     }
 
-    protected void setCurrent(Long current) {
+    public void setCurrent(Long current) {
+        notifyPropertyChanged(BR.current);
         this.current = current;
     }
 
