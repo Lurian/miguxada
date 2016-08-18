@@ -92,8 +92,8 @@ public abstract class Status extends BaseObservable implements Serializable {
     }
 
     public void setMax(Long max) {
-        notifyPropertyChanged(BR.max);
         this.max = max;
+        notifyPropertyChanged(BR.max);
     }
 
     public Long getCurrent() {

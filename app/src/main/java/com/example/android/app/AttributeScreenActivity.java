@@ -1,27 +1,23 @@
 package com.example.android.app;
 
 import android.databinding.DataBindingUtil;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.android.app.databinding.ActivityAtributesScreenBinding;
+import com.example.android.app.databinding.ActivityAttributesScreenBinding;
 import com.example.model.character.Character;
 
 public class AttributeScreenActivity extends AppCompatActivity implements View.OnClickListener {
-    private Character character;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_atributes_screen);
+        setContentView(R.layout.activity_attributes_screen);
 
-        ActivityAtributesScreenBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_atributes_screen);
+        ActivityAttributesScreenBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_attributes_screen);
         MyApplication app = (MyApplication) getApplicationContext();
         final Character c = app.getCharacter();
-        this.character = c;
         binding.setAgility(c.getAttributes().getAgility());
         binding.setResilience(c.getAttributes().getResilience());
         binding.setResolve(c.getAttributes().getResolve());
@@ -33,49 +29,11 @@ public class AttributeScreenActivity extends AppCompatActivity implements View.O
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case (R.id.plusButtonAgi):
-                character.getAttributes().getAgility().increase(1L);
-                break;
-            case (R.id.plusButtonResi):
-                character.getAttributes().getResilience().increase(1L);
-                break;
-            case (R.id.plusButtonReso):
-                character.getAttributes().getResolve().increase(1L);
-                break;
-            case (R.id.plusButtonSta):
-                character.getAttributes().getStamina().increase(1L);
-                break;
-            case (R.id.plusButtonStr):
-                character.getAttributes().getStrength().increase(1L);
-                break;
-            case (R.id.plusButtonWit):
-                character.getAttributes().getWit().increase(1L);
-                break;
-            case (R.id.minusButtonAgi):
-                character.getAttributes().getAgility().decrease(1L);
-                break;
-            case (R.id.minusButtonResi):
-                character.getAttributes().getResilience().decrease(1L);
-                break;
-            case (R.id.minusButtonReso):
-                character.getAttributes().getResolve().decrease(1L);
-                break;
-            case (R.id.minusButtonSta):
-                character.getAttributes().getStamina().decrease(1L);
-                break;
-            case (R.id.minusButtonStr):
-                character.getAttributes().getStrength().decrease(1L);
-                break;
-            case (R.id.minusButtonWit):
-                character.getAttributes().getWit().decrease(1L);
-                break;
-            default:
-                break;
-        }
-    }
+    public void onClick(View view) {}
 
+    /**
+    * This method instantiates the minus and plus buttons for each attribute in the activity.
+    * */
     private void instantiateButtons() {
         final Button agiPlus = (Button) findViewById(R.id.plusButtonAgi);
         agiPlus.setOnClickListener(this);

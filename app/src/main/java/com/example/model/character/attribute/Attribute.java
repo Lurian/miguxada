@@ -25,8 +25,8 @@ public abstract class Attribute extends BaseObservable implements Serializable {
     }
 
     public void setValue(Long value) {
-        notifyPropertyChanged(BR.value);
         this.value = value;
+        notifyPropertyChanged(BR.value);
     }
 
     /**
@@ -38,7 +38,8 @@ public abstract class Attribute extends BaseObservable implements Serializable {
         if(amount < 0){
             throw new  IllegalArgumentException("Negative numbers are not accepted!");
         }
-        this.value = value + amount;
+        Long newValue = this.getValue() + amount;
+        setValue(newValue);
     }
 
     /**
@@ -51,10 +52,11 @@ public abstract class Attribute extends BaseObservable implements Serializable {
         if(amount < 0){
             throw new  IllegalArgumentException("Negative numbers are not accepted!");
         }
-        if((value - amount) < 1L) {
-            this.value = 1L;
+        Long newValue = this.getValue() - amount;
+        if(newValue < 1L) {
+            setValue(1L);
         } else {
-            this.value = value - amount;
+            setValue(newValue);
         }
     }
 }
