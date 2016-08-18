@@ -1,5 +1,8 @@
 package com.example.model.character.attribute;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import com.example.android.app.BR;
 import java.io.Serializable;
 
 /**
@@ -7,10 +10,11 @@ import java.io.Serializable;
  *
  * @author Lucas Andrade
  */
-public abstract class Attribute implements Serializable {
+public abstract class Attribute extends BaseObservable implements Serializable {
 
     /** Current value of the attribute **/
-    private Long value;
+    @Bindable
+    public Long value;
 
     public Attribute(Long value) {
         this.value = value;
@@ -20,8 +24,9 @@ public abstract class Attribute implements Serializable {
         return value;
     }
 
-    protected void setValue(Long value) {
+    public void setValue(Long value) {
         this.value = value;
+        notifyPropertyChanged(BR.value);
     }
 
     /**
@@ -33,7 +38,8 @@ public abstract class Attribute implements Serializable {
         if(amount < 0){
             throw new  IllegalArgumentException("Negative numbers are not accepted!");
         }
-        this.value = value + amount;
+        Long newValue = this.getValue() + amount;
+        setValue(newValue);
     }
 
     /**
@@ -46,10 +52,11 @@ public abstract class Attribute implements Serializable {
         if(amount < 0){
             throw new  IllegalArgumentException("Negative numbers are not accepted!");
         }
-        if((value - amount) < 1L) {
-            this.value = 1L;
+        Long newValue = this.getValue() - amount;
+        if(newValue < 1L) {
+            setValue(1L);
         } else {
-            this.value = value - amount;
+            setValue(newValue);
         }
     }
 }

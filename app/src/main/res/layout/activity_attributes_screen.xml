@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="agility"
+            type="com.example.model.character.attribute.agility.Agility" />
+
+        <variable
+            name="resilience"
+            type="com.example.model.character.attribute.resilience.Resilience" />
+
+        <variable
+            name="resolve"
+            type="com.example.model.character.attribute.resolve.Resolve" />
+
+        <variable
+            name="stamina"
+            type="com.example.model.character.attribute.stamina.Stamina" />
+
+        <variable
+            name="strength"
+            type="com.example.model.character.attribute.strength.Strength" />
+
+        <variable
+            name="wit"
+            type="com.example.model.character.attribute.wit.Wit" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                tools:context=".AttributeScreenActivity">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:padding="20dip"
+                        android:text="@string/attributes"
+                        android:textColor="#000000"
+                        android:textSize="26sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/agilityRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dcdcdc">
+
+                    <TextView
+                        android:id="@+id/agilityText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/agility"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonAgi"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> agility.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonAgi"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> agility.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/agilityValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(agility.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/resilienceRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ececec">
+
+                    <TextView
+                        android:id="@+id/resilienceText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/resilience"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonResi"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> resilience.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonResi"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> resilience.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/resilienceValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(resilience.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/resolveRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dcdcdc">
+
+                    <TextView
+                        android:id="@+id/resolveText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/resolve"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonReso"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> resolve.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonReso"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> resolve.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/resolveValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(resolve.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/staminaRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ececec">
+
+                    <TextView
+                        android:id="@+id/staminaText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/stamina"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonSta"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> stamina.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonSta"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> stamina.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/staminaValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(stamina.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/strengthRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#dcdcdc">
+
+                    <TextView
+                        android:id="@+id/strengthText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/strength"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonStr"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> strength.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonStr"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> strength.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/strengthValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(strength.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/witRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ececec">
+
+                    <TextView
+                        android:id="@+id/witText"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@string/wit"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+
+                    <Button
+                        android:id="@+id/plusButtonWit"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> wit.increase(Long.valueOf("1"))}'
+                        android:text="@string/plusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <Button
+                        android:id="@+id/minusButtonWit"
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0"
+                        android:background="#b0b0b0"
+                        android:onClick='@{() -> wit.decrease(Long.valueOf("1"))}'
+                        android:text="@string/minusSign"
+                        android:textColor="#000000"
+                        android:textSize="21sp" />
+
+                    <TextView
+                        android:id="@+id/witValue"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:padding="20dip"
+                        android:text="@{Long.toString(wit.value)}"
+                        android:textColor="#000000"
+                        android:textSize="22sp" />
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
