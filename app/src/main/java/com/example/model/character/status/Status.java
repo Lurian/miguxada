@@ -26,7 +26,8 @@ public abstract class Status extends BaseObservable implements Serializable {
     public Long current;
 
     /** Maximum value of the status **/
-    private Long max;
+    @Bindable
+    public Long max;
 
     /** Minimun value of the status **/
     private Long min = DEFAULT_MIN;
@@ -91,6 +92,7 @@ public abstract class Status extends BaseObservable implements Serializable {
     }
 
     public void setMax(Long max) {
+        notifyPropertyChanged(BR.max);
         this.max = max;
     }
 

@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/HealthValue"
                 android:layout_weight="1"
-                android:text="@{Long.toString(health.current)}"
+                android:text='@{Long.toString(health.current) + "/" + Long.toString(health.max)}'
                 android:textSize="22sp"
                 android:background="#d3d3d3"
                 android:textColor="#000000"
@@ -64,7 +64,7 @@
                 android:id="@+id/EnergyValue"
                 android:layout_weight="1"
                 android:textSize="22sp"
-                android:text="@{Long.toString(energy.current)}"
+                android:text='@{Long.toString(energy.current) + "/" + Long.toString(energy.max)}'
                 android:background="#a09f9f"
                 android:textColor="#000000"
                 android:padding="18dip"

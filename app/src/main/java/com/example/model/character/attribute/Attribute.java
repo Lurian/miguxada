@@ -1,5 +1,8 @@
 package com.example.model.character.attribute;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import com.example.android.app.BR;
 import java.io.Serializable;
 
 /**
@@ -7,10 +10,11 @@ import java.io.Serializable;
  *
  * @author Lucas Andrade
  */
-public abstract class Attribute implements Serializable {
+public abstract class Attribute extends BaseObservable implements Serializable {
 
     /** Current value of the attribute **/
-    private Long value;
+    @Bindable
+    public Long value;
 
     public Attribute(Long value) {
         this.value = value;
@@ -20,7 +24,8 @@ public abstract class Attribute implements Serializable {
         return value;
     }
 
-    protected void setValue(Long value) {
+    public void setValue(Long value) {
+        notifyPropertyChanged(BR.value);
         this.value = value;
     }
 
