@@ -2,7 +2,6 @@ package com.example.model.tests.character;
 
 import com.example.model.character.Character;
 import com.example.model.character.CharacterAttributes;
-import com.example.model.character.CharacterStatuses;
 import com.example.model.character.attribute.agility.Agility;
 import com.example.model.character.attribute.resilience.Resilience;
 import com.example.model.character.attribute.resolve.Resolve;
@@ -14,7 +13,7 @@ import com.example.model.character.status.health.Health;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 

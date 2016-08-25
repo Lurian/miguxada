@@ -1,10 +1,8 @@
 package com.example.model.tests.character.attribute;
 
 import com.example.model.character.attribute.Attribute;
-
 import org.junit.Ignore;
 import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
