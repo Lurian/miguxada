@@ -15,6 +15,7 @@ import com.example.model.character.status.health.Health;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -29,10 +30,6 @@ public class CharacterTest {
         String name = "name";
         String biography = "biography";
 
-        Health h = new Health(100L);
-        Energy e = new Energy(100L);
-        CharacterStatuses charStat = new CharacterStatuses(h,e);
-
         Agility agility = new Agility(10L);
         Resilience resilience = new Resilience(10L);
         Resolve resolve = new Resolve(10L);
@@ -42,11 +39,20 @@ public class CharacterTest {
 
         CharacterAttributes charAttr = new CharacterAttributes(agility,resilience,resolve,stamina,strength,wit);
 
-        Character char1 = new Character(name, biography,charStat, charAttr);
+        Character char1 = new Character(name, biography, charAttr);
 
         assertThat(char1.getBiography(), is(biography));
         assertThat(char1.getName(), is(name));
-        assertThat(char1.getStatuses().getHealth(),is(h));
-        assertThat(char1.getAttributes().getStrength(), is(strength));
+        assertNotNull(char1.getStatuses());
+
+        Health h = char1.getStatuses().getHealth();
+        assertNotNull(char1.getStatuses().getHealth());
+        assertThat(h.getMax(), is(100+(resilience.getValue()*10)));
+        assertThat(h.getCurrent(), is(100+(resilience.getValue()*10)));
+
+        Energy e = char1.getStatuses().getEnergy();
+        assertNotNull(char1.getStatuses().getEnergy());
+        assertThat(e.getMax(), is(100+(stamina.getValue()*10)));
+        assertThat(e.getCurrent(), is(100+(stamina.getValue()*10)));
     }
 }

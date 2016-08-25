@@ -35,8 +35,6 @@ public class MyApplication extends MultiDexApplication {
 	 * @return Mock Chracter
 	 */
 	private Character getMockCharacter() {
-		CharacterStatuses charStat = new CharacterStatuses(new Health(100L), new Energy(100L));
-
 		Agility agility = new Agility(10L);
 		Resilience resilience = new Resilience(10L);
 		Resolve resolve = new Resolve(10L);
@@ -45,7 +43,7 @@ public class MyApplication extends MultiDexApplication {
 		Wit wit = new Wit(10L);
 
 		CharacterAttributes charAttr = new CharacterAttributes(agility, resilience, resolve, stamina, strength, wit);
-		return new Character("João", "", charStat, charAttr);
+		return new Character("João", "", charAttr);
 	}
 
 	@Override

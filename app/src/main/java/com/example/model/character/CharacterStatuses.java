@@ -1,5 +1,6 @@
 package com.example.model.character;
 
+import com.example.model.character.attribute.stamina.Stamina;
 import com.example.model.character.status.energy.Energy;
 import com.example.model.character.status.health.Health;
 
@@ -16,6 +17,14 @@ public class CharacterStatuses implements Serializable{
     public CharacterStatuses(Health health, Energy energy) {
         this.health = health;
         this.energy = energy;
+    }
+
+    public CharacterStatuses(CharacterAttributes charAttr) {
+        this.health = new Health(Health.calculateMaximum(charAttr.getResilience()));
+        this.energy = new Energy(Energy.calculateMaximum(charAttr.getStamina()));
+
+        charAttr.getResilience().addACListener(health);
+        charAttr.getStamina().addACListener(energy);
     }
 
     public Health getHealth() {

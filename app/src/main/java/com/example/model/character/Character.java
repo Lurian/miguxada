@@ -21,11 +21,11 @@ public class Character implements Serializable {
     /** Statuses of the character **/
     private CharacterAttributes attributes;
 
-    public Character(String name, String biography, CharacterStatuses statuses, CharacterAttributes attributes){
+    public Character(String name, String biography, CharacterAttributes attributes){
         this.biography = biography;
         this.name = name;
-        this.statuses = statuses;
         this.attributes = attributes;
+        this.statuses = new CharacterStatuses(attributes);
     }
 
     public String getName() {
