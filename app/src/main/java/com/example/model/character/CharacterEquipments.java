@@ -4,7 +4,6 @@ import com.example.model.character.equipment.Equipment;
 import com.example.model.character.equipment.Slot;
 import com.example.model.character.equipment.armor.Armor;
 import com.example.model.character.equipment.weapon.Weapon;
-
 import java.util.HashMap;
 
 /**
@@ -41,7 +40,29 @@ public class CharacterEquipments {
      * @throws Exception In case the slot the item goes into is already occupied.
      */
     public void equipItem(Equipment equipment) throws Exception {
-        // TODO
+        Slot slot = this.getSlot(equipment);
+        if (slot.equals(Slot.WEAPON_BOTH)) {
+            if (this.equipments.get(Slot.WEAPON_RIGHT) == null && this.equipments.get(Slot.WEAPON_LEFT) == null) {
+                this.equipments.put(Slot.WEAPON_RIGHT, equipment);
+                this.equipments.put(Slot.WEAPON_LEFT,equipment);
+            } else {
+                throw new Exception("One or both slots are already taken. Please empty those slots first.");
+            }
+        } else if (slot.equals(Slot.WEAPON_ANY)) {
+            if (this.equipments.get(Slot.WEAPON_RIGHT) == null) {
+                this.equipments.put(Slot.WEAPON_RIGHT,equipment);
+            } else if (this.equipments.get(Slot.WEAPON_LEFT) == null) {
+                this.equipments.put(Slot.WEAPON_LEFT,equipment);
+            } else {
+                throw new Exception("That slot already has an item. Please empty that slot first.");
+            }
+        } else {
+            if (this.equipments.get(slot) == null) {
+                this.equipments.put(slot,equipment);
+            } else {
+                throw new Exception("That slot already has an item. Please empty that slot first.");
+            }
+        }
     }
 
     /**
@@ -49,9 +70,9 @@ public class CharacterEquipments {
      *
      * @param equipment The item to be attributed to a slot.
      * @return The slot in which the item should fit.
-     * @throws IllegalArgumentException If the item doesn't belong to any known slot or if the item type was not recognized.
+     * @throws Exception If the item doesn't belong to any known slot or if the item type was not recognized.
      */
-    public Slot getSlot(Equipment equipment) throws IllegalArgumentException {
+    public Slot getSlot(Equipment equipment) throws Exception {
         if (equipment.getClass().equals(Armor.class)) {
             Armor.Type type = ((Armor) equipment).getType();
             switch (type) {
@@ -68,7 +89,7 @@ public class CharacterEquipments {
                 case BELT:
                     return Slot.WAIST;
                 default:
-                    throw new IllegalArgumentException("The item does not fit in any of the default slots!");
+                    throw new Exception("The item does not fit in any of the default slots!");
             }
         } else if (equipment.getClass().equals(Weapon.class)) {
             Weapon.Type type = ((Weapon) equipment).getType();
@@ -82,10 +103,10 @@ public class CharacterEquipments {
                 case OFF_HANDED:
                     return Slot.WEAPON_LEFT;
                 default:
-                    throw new IllegalArgumentException("The item does not fit in any of the default slots!");
+                    throw new Exception("The item does not fit in any of the default slots!");
             }
         } else {
-            throw new IllegalArgumentException("Unknown item type!");
+            throw new Exception("Unknown item type!");
         }
     }
 
@@ -94,15 +115,20 @@ public class CharacterEquipments {
      *
      * @param slot The slot from where the item should be removed.
      * @return The item equipped on the given slot or null when the slot is empty.
-     * @Exception IllegalArgumentException If the slot passed does not exist on this Character.
+     * @throws Exception If the slot passed does not exist on this Character.
      */
-    public Equipment unequipItem(Slot slot) throws IllegalArgumentException {
-        // TODO
-       return null;
+    public Equipment unequipItem(Slot slot) throws Exception {
+        if (this.equipments.containsKey(slot)) {
+            Equipment removed = this.equipments.remove(slot);
+            this.equipments.put(slot, null);
+            return removed;
+        } else {
+            throw new Exception("Unknown slot.");
+        }
     }
 
     /**
-     * This method empties the map of all equipped items.
+     * This method unequips all the equipped items.
      */
     public void unequipAll() {
         equipments.clear();
