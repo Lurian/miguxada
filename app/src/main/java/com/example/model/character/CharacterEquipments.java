@@ -37,20 +37,12 @@ public class CharacterEquipments {
      * @throws Exception In case the slot the item goes into is already occupied.
      */
     public void equipItem(Equipment equipment) throws Exception {
-        Slot slot = equipment.getSlot();
-        if (this.equipments.get(slot) == null) {
-            this.equipments.put(slot,equipment);
-        } else {
-            throw new Exception("There is an item already equipped on that slot!");
-        }
+        // TODO
     }
 
     public Equipment unequipItem(Slot slot) {
-        if (this.equipments.get(slot) == null) {
-            return null;
-        } else {
-            return this.equipments.remove(slot);
-        }
+        // TODO
+       return null;
     }
 
     /**
