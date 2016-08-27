@@ -7,25 +7,25 @@ import com.example.model.character.equipment.Equipment;
  * @author Pedro Falcao
  */
 public class Armor extends Equipment {
-    public enum ArmorType {
+    public enum Type {
         HEADWEAR,
         BODY_ARMOR,
         LEGWEAR,
         GLOVES,
-        BOOTS,
+        FOOTWEAR,
         BELT
     }
 
-    ArmorType type;
+    Type type;
     Long armorValue;
 
-    public Armor(String name, ArmorType type, Long armorValue) {
+    public Armor(String name, Type type, Long armorValue) {
         this.name = name;
         this.type = type;
         this.armorValue = armorValue;
     }
 
-    public ArmorType getType() {
+    public Type getType() {
         return this.type;
     }
 
@@ -33,7 +33,7 @@ public class Armor extends Equipment {
         return this.armorValue;
     }
 
-    public void setType(ArmorType newType) {
+    public void setType(Type newType) {
         this.type = newType;
     }
 

@@ -5,9 +5,13 @@ package com.example.model.character.equipment;
  */
 public enum Slot {
     HEAD,
-    BODY,
+    CHEST,
+    LEGS,
     HANDS,
     FEET,
+    WAIST,
     WEAPON_LEFT,
     WEAPON_RIGHT,
+    WEAPON_ANY,
+    WEAPON_BOTH
 }

@@ -27,7 +27,8 @@ public class CharacterEquipmentsTest {
         map.put(Slot.WEAPON_RIGHT,null);
         map.put(Slot.WEAPON_LEFT,null);
         map.put(Slot.HEAD,null);
-        map.put(Slot.BODY,null);
+        map.put(Slot.CHEST,null);
+        map.put(Slot.LEGS,null);
         map.put(Slot.FEET,null);
         map.put(Slot.HANDS,null);
 

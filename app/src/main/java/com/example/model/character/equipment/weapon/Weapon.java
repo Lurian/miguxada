@@ -7,24 +7,25 @@ import com.example.model.character.equipment.Equipment;
  * @author Pedro Falcao
  */
 public class Weapon extends Equipment {
-    public enum WeaponType {
+    public enum Type {
         ONE_HANDED,
         TWO_HANDED,
-        RIGHT_HANDED,
-        LEFT_HANDED,
+        MAIN_HANDED,
+        OFF_HANDED,
+        SHIELD
     }
 
     public String name;
-    public WeaponType type;
+    public Type type;
     public Long damageValue;
 
-    public Weapon(String name, WeaponType type, Long damageValue) {
+    public Weapon(String name, Type type, Long damageValue) {
         this.name = name;
         this.type = type;
         this.damageValue = damageValue;
     }
 
-    public WeaponType getType() {
+    public Type getType() {
         return this.type;
     }
 
@@ -32,7 +33,7 @@ public class Weapon extends Equipment {
         return this.damageValue;
     }
 
-    public void setType(WeaponType newType) {
+    public void setType(Type newType) {
         this.type = newType;
     }
 
