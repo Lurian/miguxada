@@ -1,6 +1,8 @@
-package com.example.model.character.equipment;
+package com.example.model.character;
 
 /**
+ * Enum with the possible slots in which a Character can equip items.
+ *
  * @author Pedro Falcao
  */
 public enum Slot {
