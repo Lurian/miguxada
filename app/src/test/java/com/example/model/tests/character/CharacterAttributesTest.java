@@ -1,18 +1,13 @@
 package com.example.model.tests.character;
 
 import com.example.model.character.CharacterAttributes;
-import com.example.model.character.CharacterStatuses;
 import com.example.model.character.attribute.agility.Agility;
 import com.example.model.character.attribute.resilience.Resilience;
 import com.example.model.character.attribute.resolve.Resolve;
 import com.example.model.character.attribute.stamina.Stamina;
 import com.example.model.character.attribute.strength.Strength;
 import com.example.model.character.attribute.wit.Wit;
-import com.example.model.character.status.energy.Energy;
-import com.example.model.character.status.health.Health;
-
 import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -24,7 +19,7 @@ import static org.junit.Assert.assertThat;
 public class CharacterAttributesTest {
 
     @Test
-    public void characterStatusModel_SimpleConstructor() {
+    public void characterAttributesModel_SimpleConstructor() {
         Agility agility = new Agility(10L);
         Resilience resilience = new Resilience(10L);
         Resolve resolve = new Resolve(10L);
