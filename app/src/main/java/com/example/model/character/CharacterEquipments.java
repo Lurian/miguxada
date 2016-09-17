@@ -3,14 +3,11 @@ package com.example.model.character;
 import com.example.model.character.equipment.Equipment;
 import com.example.model.character.equipment.armor.Armor;
 import com.example.model.character.equipment.weapon.Weapon;
-
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
-
-import static com.example.model.character.Slot.WEAPON_BOTH;
-import static com.example.model.character.Slot.WEAPON_LEFT;
-import static com.example.model.character.Slot.WEAPON_RIGHT;
+import static com.example.model.character.Slot.*;
 
 /**
  * Class that manages the equipments a Character uses.
@@ -47,43 +44,47 @@ public class CharacterEquipments {
      * @throws Exception If either the Slot or the Item Type were not recognized.
      */
     public boolean equipItem(Equipment equipment) throws Exception {
-        Slot slot = this.assignSlot(equipment);
-        switch (slot) {
-            case WEAPON_ANY:
-                if (this.canEquipAt(WEAPON_RIGHT)) {
-                    this.equipments.put(WEAPON_RIGHT, equipment);
-                    return true;
-                } else if (this.canEquipAt(WEAPON_LEFT)) {
-                    this.equipments.put(WEAPON_LEFT, equipment);
-                    return true;
+        Slot slot = CharacterEquipments.assignSlot(equipment);
+        if (this.canEquipAt(slot)) {
+            if (equipment instanceof Weapon) {
+                Weapon.Type weaponType = ((Weapon) equipment).getType();
+                if (weaponType == Weapon.Type.TWO_HANDED && !this.canEquipAt(slot)) {
+                    return false;
                 }
-            case WEAPON_BOTH:
-                if (this.canEquipAt(WEAPON_LEFT) && this.canEquipAt(WEAPON_RIGHT)) {
-                    this.equipments.put(WEAPON_LEFT, equipment);
-                    this.equipments.put(WEAPON_RIGHT, equipment);
-                    return true;
+            }
+            equipments.put(slot,equipment);
+            return true;
+        } else {
+            if (equipment instanceof Weapon) {
+                Weapon.Type weaponType = ((Weapon) equipment).getType();
+                if (weaponType == Weapon.Type.ONE_HANDED) {
+                    slot = WEAPON_LEFT;
+                    if (this.canEquipAt(slot)) {
+                        equipments.put(slot,equipment);
+                        return true;
+                    }
                 }
-            default:
-                if (this.canEquipAt(slot)) {
-                    this.equipments.put(slot, equipment);
-                    return true;
-                }
-        }
-        return false;
+            }
+        } return false;
     }
 
     /**
      * Checks if there are no items equipped in the given slot.
      *
-     * @param slot The slot to be checked
-     * @return True in case the slot is empty.
+     * @param slot The slot to be checked.
+     * @throws Exception in case the slot was not recognized.
+     * @return True in case the slot is empty. False in case the slot is occupied.
      */
     public boolean canEquipAt(Slot slot) throws Exception {
         if (equipments.containsKey(slot)) {
-            return (this.equipments.get(slot) == null);
-        } else {
-            throw new Exception("There is no such slot!");
-        }
+            if (slot == WEAPON_LEFT && this.equipments.get(WEAPON_RIGHT) != null) {
+                if (((Weapon) this.equipments.get(WEAPON_RIGHT)).getType() == Weapon.Type.TWO_HANDED) {
+                    return false;
+                }
+            }
+            boolean isSlotEmpty = (this.equipments.get(slot) == null);
+            return isSlotEmpty;
+        } throw new Exception("There is no such slot!");
     }
 
     /**
@@ -93,11 +94,11 @@ public class CharacterEquipments {
      * @return The slot in which the item should fit.
      * @throws Exception If the item doesn't belong to any known slot or if the item type was not recognized.
      */
-    public Slot assignSlot(Equipment equipment) throws Exception {
+    public static Slot assignSlot(Equipment equipment) throws Exception {
         if (equipment instanceof Armor) {
             Armor.Type type = ((Armor) equipment).getType();
             switch (type) {
-                case HEADWEAR:
+                case HEADGEAR:
                     return Slot.HEAD;
                 case BODY_ARMOR:
                     return Slot.CHEST;
@@ -116,9 +117,9 @@ public class CharacterEquipments {
             Weapon.Type type = ((Weapon) equipment).getType();
             switch (type) {
                 case ONE_HANDED:
-                    return Slot.WEAPON_ANY;
+                    return Slot.WEAPON_RIGHT;
                 case TWO_HANDED:
-                    return WEAPON_BOTH;
+                    return WEAPON_RIGHT;
                 case MAIN_HANDED:
                     return Slot.WEAPON_RIGHT;
                 case OFF_HANDED:
@@ -144,21 +145,10 @@ public class CharacterEquipments {
         if (this.equipments.containsKey(slot)) {
             Equipment removed = this.equipments.remove(slot);
             if (removed instanceof Weapon) {
-                if (((Weapon) removed).getType() == Weapon.Type.TWO_HANDED) {
-                    if (slot == WEAPON_LEFT) {
-                        this.equipments.remove(WEAPON_RIGHT);
-                        this.equipments.put(WEAPON_RIGHT, null);
-                    } else {
-                        this.equipments.remove(WEAPON_LEFT);
-                        this.equipments.put(WEAPON_LEFT, null);
-                    }
-                }
+                this.equipments.put(slot, null);
+                return removed;
             }
-            this.equipments.put(slot, null);
-            return removed;
-        } else {
-            throw new Exception("Unknown slot.");
-        }
+        } throw new Exception("Unknown slot.");
     }
 
     /**
@@ -166,8 +156,8 @@ public class CharacterEquipments {
      *
      * @return An ArrayList with the Equipments removed.
      */
-    public ArrayList<Equipment> unequipAll() {
-        ArrayList<Equipment> unequipped = (ArrayList<Equipment>) equipments.values();
+    public Collection<Equipment> unequipAll() {
+        Collection<Equipment> unequipped = equipments.values();
         equipments.clear();
         instantiateMap();
         return unequipped;
@@ -178,12 +168,10 @@ public class CharacterEquipments {
      *
      * @return An ArrayList of Equipment objects containing the items currently equipped by the character.
      */
-    public ArrayList<Equipment> getEquipments() {
+    @SuppressWarnings("unchecked")
+    public Collection<Equipment> getEquipments() {
         HashMap<Slot, Equipment> currentEquipments = (HashMap<Slot, Equipment>) this.equipments.clone();
-        if (((Weapon) currentEquipments.get(WEAPON_RIGHT)).getType() == Weapon.Type.TWO_HANDED) {
-            currentEquipments.remove(WEAPON_LEFT);
-        }
-        return (ArrayList<Equipment>) currentEquipments.values();
+        return currentEquipments.values();
     }
 
     public Set<Slot> getSlots() {

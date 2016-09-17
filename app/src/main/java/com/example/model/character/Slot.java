@@ -13,7 +13,5 @@ public enum Slot {
     FEET,
     WAIST,
     WEAPON_LEFT,
-    WEAPON_RIGHT,
-    WEAPON_ANY,
-    WEAPON_BOTH
+    WEAPON_RIGHT
 }

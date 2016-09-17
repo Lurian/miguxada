@@ -8,7 +8,7 @@ import com.example.model.character.equipment.Equipment;
  */
 public class Armor extends Equipment {
     public enum Type {
-        HEADWEAR,
+        HEADGEAR,
         BODY_ARMOR,
         LEGWEAR,
         GLOVES,
